@@ -1,0 +1,63 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+    <h1>Expense Tracker</h1>
+    <div class="container">
+        <div id="details">
+            <div>Total Budget</div>
+            <div>Spend <span id="spend"></span></div>
+            <div>Remaining</div>
+        </div>
+
+        <form id="expense-form">
+            <!-- <label for="Cateogory">Cateogory
+                <input name="Cateogory" type="text" id="expenseCateogory" required />
+            </label> -->
+            <label for="Cateogory">Cateogory: 
+            <select name="Cateogory" id="expenseCateogory" required>
+                <option value="volvo">Volvo</option>
+                <option value="saab">Saab</option>
+                <option value="mercedes">Mercedes</option>
+                <option value="audi">Audi</option>
+            </select>
+            </label>
+            <label for="Price">Price
+                <input name="Price" type="number" id="expensePrice" required />
+            </label>
+            <label for="Date">Date
+                <input name="Date" type="date" id="expenseDate" required />
+            </label>
+            <button id="submitButton" type="submit">Add Expense </button>
+        </form>
+        <div>
+            <table class="expenseTable">
+                <thead>
+                    <tr>
+                        <th>Cateogory</th>
+                        <th>Price</th>
+                        <th>Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <tbody id="expenseList">
+
+                    </tbody>
+
+            </table>
+        </div>
+        <div>
+            <h4>Your Total Expense is : <span id="totalAmount">0</span></h4>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

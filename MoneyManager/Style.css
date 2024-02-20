@@ -1,0 +1,110 @@
+/* style.css */
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body { 
+	font-family: Arial, sans-serif; 
+	margin: 20px; 
+} 
+
+h1 { 
+	text-align: center; 
+	margin-bottom: 20px; 
+}
+
+.container { 
+	max-width: 800px; 
+	margin: 0 auto; 
+	padding: 20px; 
+	border-radius: 8px; 
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+#details
+{
+	display: flex;
+    justify-content: space-around;
+    background: aliceblue;
+    height: 7vw;
+    padding: 1vw;
+}
+#details div{
+	color: white;
+	background-color:#555555 ;
+	width: 15%;
+    text-align: center;
+    padding: 2%;
+    border-radius: 8px;
+	border:1px solid red;
+}
+
+label{
+    DISPLAY: flex;
+    ALIGN-ITEMS: center;
+    justify-content: center;
+    width: 80%;
+}
+ 
+
+form { 
+	display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-bottom: 20px; 
+    align-items: center;
+} 
+
+input[type="text"], 
+input[type="number"] { 
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 60%;
+    margin: 10px;
+} 
+
+#submitButton {
+    padding: 10px 20px;
+    background-color: #4CAF9F;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 158px;   
+} 
+
+
+
+.expense-table { 
+	border: 1px solid #ddd; 
+	border-radius: 8px; 
+	overflow: hidden; 
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+} 
+
+table { 
+	width: 100%; 
+	border-collapse: collapse; 
+} 
+
+thead th { 
+	background-color: #f2f2f2; 
+	padding: 10px; 
+	text-align: left; 
+} 
+
+tbody td { 
+	padding: 10px; 
+	border-top: 1px solid #ddd; 
+} 
+
+.delete-btn { 
+	color: red; 
+	cursor: pointer; 
+} 
+
+.total-amount { 
+	padding: 10px; 
+	text-align: right; 
+	background-color: #f2f2f2; 
+}
