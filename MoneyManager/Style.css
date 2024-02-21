@@ -5,12 +5,11 @@
 }
 body { 
 	font-family: Arial, sans-serif; 
-	margin: 20px; 
 } 
 
 h1 { 
 	text-align: center; 
-	margin-bottom: 20px; 
+	margin-bottom: 5px;
 }
 
 .container { 
@@ -18,8 +17,17 @@ h1 {
 	margin: 0 auto; 
 	padding: 20px; 
 	border-radius: 8px; 
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+	border: 1px solid black;
+    box-shadow: 2px 3px 5px 3px #000000c2;
+   
 }
+/* styling the user input */
+#userInput{
+    display: flex;
+    width: 100%;
+    margin: 0.5rem;
+}
+
 
 #details
 {
@@ -30,13 +38,38 @@ h1 {
     padding: 1vw;
 }
 #details div{
-	color: white;
-	background-color:#555555 ;
-	width: 15%;
+	color: whitesmoke;
+    background-color: #191616;
+    width: 15%;
     text-align: center;
     padding: 2%;
     border-radius: 8px;
 	border:1px solid red;
+}
+
+#expenseCateogory
+{
+	padding: 5.1px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 30rem;
+    margin: 10px;
+}
+#expensePrice
+{
+	padding: 5.1px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 10px;
+     width: 27rem;
+}
+#expenseDate{
+	width: 27rem;
+    padding: 5.1px;
+    border: 1px solid #ccc;
+    border-radius: 4px;    
+	margin: 10px;
+
 }
 
 label{
@@ -72,7 +105,15 @@ input[type="number"] {
     cursor: pointer;
     width: 158px;   
 } 
-
+ #submitButton:disabled
+ {
+    padding: 10px 20px;
+    background-color: #a7dfd5;
+    color: white;
+    border-radius: 10px;
+    width: 158px; 
+    cursor:not-allowed
+ }
 
 
 .expense-table { 
