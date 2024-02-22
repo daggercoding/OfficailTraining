@@ -1,151 +1,220 @@
 /* style.css */
-*{
-    margin: 0px;
-    padding: 0px;
+* {
+  margin: 0px;
+  padding: 0px;
 }
-body { 
-	font-family: Arial, sans-serif; 
-} 
-
-h1 { 
-	text-align: center; 
-	margin-bottom: 5px;
+body {
+  font-family: Arial, sans-serif;
 }
 
-.container { 
-	max-width: 800px; 
-	margin: 0 auto; 
-	padding: 20px; 
-	border-radius: 8px; 
-	border: 1px solid black;
-    box-shadow: 2px 3px 5px 3px #000000c2;
-   
+h1 {
+  text-align: center;
+  margin-bottom: 5px;
+  font-size: 1.5rem;
 }
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid black;
+  box-shadow: 2px 3px 5px 3px #000000c2;
+}
+
+.container1 {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container1 div {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  width: 90%;
+}
+.container1 div label {
+  display: flex;
+  width: 83px;
+}
+.container1 div input {
+  display: flex;
+  width: 100%;
+}
+.container1 div select {
+  display: flex;
+  width: 100%;
+}
+
 /* styling the user input */
-#userInput{
-    display: flex;
-    width: 100%;
-    margin: 0.5rem;
+#userInput {
+  display: flex;
+  width: 100%;
+  /* margin: 0.5rem; */
+  justify-content: space-evenly;
+  margin: 8px 0;
 }
 
-
-#details
-{
-	display: flex;
-    justify-content: space-around;
-    background: aliceblue;
-    height: 7vw;
-    padding: 1vw;
-}
-#details div{
-	color: whitesmoke;
-    background-color: #191616;
-    width: 15%;
-    text-align: center;
-    padding: 2%;
-    border-radius: 8px;
-	border:1px solid red;
+#userInput div {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
-#expenseCateogory
-{
-	padding: 5.1px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 30rem;
-    margin: 10px;
-}
-#expensePrice
-{
-	padding: 5.1px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin: 10px;
-     width: 27rem;
-}
-#expenseDate{
-	width: 27rem;
-    padding: 5.1px;
-    border: 1px solid #ccc;
-    border-radius: 4px;    
-	margin: 10px;
-
+#userInput div label {
+  display: flex;
+  width: 96px;
+  justify-content: end;
 }
 
+#details {
+  display: flex;
+  justify-content: space-around;
+  background: aliceblue;
+  height: 7vw;
+  padding: 1vw;
+}
+#details div {
+  color: whitesmoke;
+  background-color: #191616;
+  width: 15%;
+  text-align: center;
+  padding: 2%;
+  border-radius: 8px;
+  border: 1px solid red;
+}
+
+#expenseCateogory {
+  padding: 5.1px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  /* width: 30rem; */
+  margin: 10px;
+}
+#expensePrice {
+  padding: 5.1px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin: 10px;
+  /* width: 27rem; */
+}
+#expenseDate {
+  /* width: 27rem; */
+  padding: 5.1px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin: 10px;
+}
+/* 
 label{
     DISPLAY: flex;
     ALIGN-ITEMS: center;
     justify-content: center;
     width: 80%;
+} */
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  align-items: center;
 }
- 
 
-form { 
-	display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    margin-bottom: 20px; 
-    align-items: center;
-} 
-
-input[type="text"], 
-input[type="number"] { 
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 60%;
-    margin: 10px;
-} 
+input[type="text"],
+input[type="number"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 60%;
+  margin: 10px;
+}
 
 #submitButton {
-    padding: 10px 20px;
-    background-color: #4CAF9F;
-    color: white;
-    border-radius: 10px;
-    cursor: pointer;
-    width: 158px;   
-} 
- #submitButton:disabled
- {
-    padding: 10px 20px;
-    background-color: #a7dfd5;
-    color: white;
-    border-radius: 10px;
-    width: 158px; 
-    cursor:not-allowed
- }
+  padding: 10px 20px;
+  background-color: #4caf9f;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 158px;
+}
+#submitButton:disabled {
+  padding: 10px 20px;
+  background-color: #a7dfd5;
+  color: white;
+  border-radius: 10px;
+  width: 158px;
+  cursor: not-allowed;
+}
 
+.expense-table {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-.expense-table { 
-	border: 1px solid #ddd; 
-	border-radius: 8px; 
-	overflow: hidden; 
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-} 
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
 
-table { 
-	width: 100%; 
-	border-collapse: collapse; 
-} 
+thead th {
+  background-color: #f2f2f2;
+  padding: 10px;
+  text-align: left;
+}
 
-thead th { 
-	background-color: #f2f2f2; 
-	padding: 10px; 
-	text-align: left; 
-} 
+tbody td {
+  padding: 10px;
+  border-top: 1px solid #ddd;
+}
 
-tbody td { 
-	padding: 10px; 
-	border-top: 1px solid #ddd; 
-} 
+.total-amount {
+  padding: 10px;
+  text-align: right;
+  background-color: #f2f2f2;
+}
 
-.delete-btn { 
-	color: red; 
-	cursor: pointer; 
-} 
-
-.total-amount { 
-	padding: 10px; 
-	text-align: right; 
-	background-color: #f2f2f2; 
+/* TO APPLY ON THE UPDATE FORM */
+#updateContainer {
+  margin-top: 5%;
+  border: 1px solid red;
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+#updateContainer div {
+  width: 95%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin: 1% 0%;
+}
+#updateContainer div label {
+  display: flex;
+  width: 80px;
+  padding: 5px;
+}
+#updateContainer div input {
+  width: 100%;
+  margin: 0px;
+  padding: 8px;
+}
+#updateContainer div select {
+  width: 100%;
+  margin: 0px;
+  padding: 8px;
+}
+#updateButton{
+  padding: 10px 20px;
+  background-color: #4caf9f;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 158px;
 }

@@ -1,75 +1,123 @@
 <!-- index.html -->
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <title>Expense Tracker</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,200,0,0" />
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,200,0,0"
+    />
+  </head>
 
-</head>
-
-<body>
+  <body>
     <h1>Expense Tracker</h1>
-    
+
     <div class="container">
-       
-        <div id="details">
-            <div>Total Budget <span id="total"></span> </div>
-            <div>Total Expense <span id="spend"></span></div>
-            <div>Due_Balance <span  style="display: block;" id="remaining"></span></div>
+      <div id="details">
+        <div>Total Budget <span id="total"></span></div>
+        <div>
+          Total Expense <br />
+          <span id="spend"></span>
+        </div>
+        <div>Remaining <span style="display: block" id="remaining"></span></div>
+      </div>
+
+      <form id="expense-form">
+        <div id="userInput">
+          <div>
+            <label for="Budget"> Total Budget </label>
+            <input
+              id="budgetInput"
+              type="number"
+              name="Budget"
+              placeholder="Please Enter Your Budget"
+            />
+          </div>
+          <div>
+            <label for="userCateogory"> Cateogory </label>
+            <input
+              id="userCateogory"
+              type="text"
+              name="userCateogory"
+              placeholder="Please Enter Your Cateogory"
+            />
+          </div>
+        </div>
+        <div class="container1">
+          <div>
+            <label for="Cateogory">Cateogory</label>
+            <select name="Cateogory" id="expenseCateogory" required>
+              <option value="none" selected disabled hidden>
+                Select Your Cateogory
+              </option>
+              <option value="Shopping">Shopping</option>
+              <option value="Grocery">Grocery</option>
+              <option value="Travel">Travel</option>
+              <option value="Rent">Rent</option>
+            </select>
+          </div>
+          <div>
+            <label for="Price">Price</label>
+            <input name="Price" type="number" id="expensePrice" required />
+          </div>
+          <div>
+            <label for="Date">Date</label>
+            <input name="Date" type="date" id="expenseDate" required />
+          </div>
+        </div>
+        <button id="submitButton" type="submit">Add Expense</button>
+      </form>
+      <div>
+        <table class="expenseTable">
+          <thead>
+            <tr>
+              <th>Cateogory</th>
+              <th>Price</th>
+              <th>Date</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tr>
+            <tbody id="expenseList"></tbody>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <h4>Your Total Expense is : <span id="totalAmount">0</span></h4>
+      </div>
+
+      <form id="updateContainer">
+         <h1>USER UPDATE CONTAINER</h1>
+        <div>
+          <!-- <label for="updateCateogory">Cateogory</label>
+          <select name="updateCateogory" id="updateCateogory">
+            <option id="updateCateogoryOption" value="vishal">vishal singh</option>
+          </select> -->
+          <label for="updateCateogory">Cateogory</label>
+          <input name="updateCateogory" type="text" id="updateCateogory" value=""/>
         </div>
 
-        <form id="expense-form">
-            
-            <div id="userInput">
-             <label for="Budget"> Total Budget
-                <input id="budgetInput" type="number" name="Budget" placeholder="Please Enter Your Budget" />
-             </label>
-             <label for="userCateogory"> Cateogory
-                <input id="userCateogory" type="text" name="userCateogory" placeholder="Please Enter Your Cateogory"/>
-             </label>
-            </div>
-            
-            <label for="Cateogory">Cateogory
-            <select name="Cateogory" id="expenseCateogory" required>
-                <option value="none" selected disabled hidden >Select Your Cateogory</option>
-                <option value="Shopping">Shopping</option>
-                <option value="Grocery">Grocery</option>
-                <option value="Travel">Travel</option>
-                <option value="Rent">Rent</option>
-            </select>    
-            </label>
-            <label for="Price">Price
-             <input name="Price" type="number" id="expensePrice" required />
-            </label>
-            <label for="Date">Date
-                <input name="Date" type="date" id="expenseDate" required />
-            </label>
-            <button id="submitButton" type="submit" >Add Expense </button>
-        </form>
         <div>
-            <table class="expenseTable">
-                <thead>
-                    <tr>
-                        <th>Cateogory</th>
-                        <th>Price</th>
-                        <th>Date</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tr>
-                    <tbody id="expenseList">
-                    </tbody>
-            </table>
+          <label for="updatePrice">Price</label>
+          <input name="updatePrice" type="number" id="updatePrice" value=""/>
         </div>
+
         <div>
-            <h4>Your Total Expense is : <span id="totalAmount">0</span></h4>
+          <label for="updateDate">Date</label>
+          <input name="updateDate" type="date" id="updateDate" value="" />
         </div>
+        <button id="updateButton" type="submit">Update Expense</button>
+    </form>
     </div>
     <script src="script.js"></script>
-</body>
-
+  </body>
 </html>
