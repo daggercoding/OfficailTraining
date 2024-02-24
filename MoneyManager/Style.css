@@ -8,17 +8,17 @@ body {
 }
 
 h1 {
-  
   text-align: center;
   margin-bottom: 5px;
   font-size: 1.5rem;
   text-shadow: 1px 1px gold;
+  margin: 0.5rem 0rem
 }
 
 .container {
   max-width: 800px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 0.6rem;
   border-radius: 8px;
   border: 1px solid black;
   box-shadow: 2px 3px 5px 3px #000000c2;
@@ -74,11 +74,12 @@ h1 {
 }
 
 #details {
-  display: flex;
-  justify-content: space-around;
-  background: aliceblue;
-  height: 7vw;
-  padding: 1vw;
+    display: flex;
+    justify-content: space-around;
+    background: aliceblue;
+    height: 5vw;
+    padding: 1vw;
+    align-items: center;
 }
 #details div {
   color: whitesmoke;
@@ -88,6 +89,7 @@ h1 {
   padding: 2%;
   border-radius: 8px;
   border: 1px solid red;
+  height: 2.5rem;
 }
 
 #expenseCateogory {
@@ -162,6 +164,7 @@ input[type="number"] {
 
 table {
   width: 100%;
+  min-height: 27vh;
   border-collapse: collapse;
 }
 
@@ -213,18 +216,19 @@ tbody td {
   padding: 5px;
 }
 #updateContainer div input {
-  width: 100%;
+  width: 80%;
   margin: 0px;
   padding: 8px;
 }
 #updateContainer div select {
-  width: 100%;
+  width: 83%;
   margin: 0px;
   padding: 8px;
 }
 #updateButtonContainer{
   display: flex;
   justify-content: space-evenly;
+  
 }
 #updateButton{
   padding: 10px 20px;
@@ -256,16 +260,23 @@ tbody td {
 }
 
 /* CSS for Filter Tab */
-.filterOption{
-  width: 100%;
-    background: #e1ffff;
-    height: 50rem;
-    display: flex;
-    align-content: flex-start;
-    flex-direction: column;
-    margin-top: 20px;
+
+#expenseTable{
+  position: relative;
 }
-.filterOption select{
-  height: 1.5rem;
+
+#message{
+  text-align: center;
+  margin-bottom: 5px;
+  font-size: 1.5rem;
+  text-shadow: 1px 1px gold;
+  margin: 0.5rem 0rem;
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  display: none;
 }
+
+
+
 

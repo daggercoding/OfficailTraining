@@ -60,10 +60,6 @@
                  <option value="none" selected disabled hidden>
                   Select Your Cateogory
                 </option>
-               <!-- <option value="Shopping">Shopping</option>
-                <option value="Grocery">Grocery</option>
-                <option value="Travel">Travel</option>
-                <option value="Rent">Rent</option> -->
             </select>
           </div>
           <div>
@@ -77,11 +73,15 @@
         </div>
         <button id="submitButton" type="submit">Add Expense</button>
       </form>
-      <div>
-        <table class="expenseTable">
+      <div id="expenseTable">
+        <table >
           <thead>
             <tr>
-              <th>Cateogory</th>
+              <th>Cateogory<span><select id="filterOptionSelector">
+                  <option value="none" selected disabled hidden>Choose to Filter</option>
+                  <option value="All">All</option>
+                  </select>
+              </span></th>
               <th>Price</th>
               <th>Date</th>
               <th>Action</th>
@@ -91,6 +91,7 @@
             <tbody id="expenseList"></tbody>
           </tr>
         </table>
+        <span id="message">No Data Found For This Category</span>
       </div>
       <div>
         <h4>Your Total Expense is : <span id="totalAmount">0</span></h4>
@@ -100,12 +101,11 @@
          <h1>Update Your Existing Expense <span><i class="fa fa-inr" style="font-size: 1.5rem;
           color: #4CAF50;"></i></span></h1>
         <div>
-          <!-- <label for="updateCateogory">Cateogory</label>
-          <select name="updateCateogory" id="updateCateogory">
-            <option id="updateCateogoryOption" value="vishal">vishal singh</option>
-          </select> -->
           <label for="updateCateogory">Cateogory</label>
-          <input name="updateCateogory" type="text" id="updateCateogory" value=""/>
+          <select name="updateCateogory" id="updateCateogory">
+            <option id="updateCateogoryOption" value="none" disabled hidden selected >Plese Select Category to Update</option>
+          </select>
+          
         </div>
 
         <div>
@@ -118,22 +118,12 @@
           <input name="updateDate" type="date" id="updateDate" value="" />
         </div>
         <div style="justify-content: space-evenly;">
-        <button id="updateCancelButton">Cancel Update</button>
+        <button id="updateCancelButton" type="button">Cancel Update</button>
         <button id="updateButton" type="submit">Update Expense</button>
         </div>
     </form>
-    <div class="filterOption">
-      <select id="filterOptionSelector">
-        <option value="none" selected disabled hidden>Choose to Filter</option>
-        <option value="All">All</option>
-        <option value="Shopping">Shopping</option>
-        <option value="Gym">Gym</option>
-        <option value="vishal">vishal</option>
-        <option value="Grocery">Grocery</option>
-      </select>
-    </div>
-    </div>
     
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
