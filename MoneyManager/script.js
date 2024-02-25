@@ -39,17 +39,20 @@ if (totalBudgetFromLocalStorage) {
   totalCard.innerText = totalBudgetFromLocalStorage;
 }
 
-let filteredArray;
+
+let filteredArray=[];
+let filteredIndex=[];
 filterOption.addEventListener("change", (e) => {
   selectedFilter = e.target.value;
   filteredArray = expenseList.filter((obj, index) => {
     if (obj.cateogory == selectedFilter) {
+      filteredIndex.push(index)
       return obj;
     }
   });
+  
   if (filteredArray.length > 0 || selectedFilter == "All") {
-    console.log("Render Function Called");
-    renderList(filteredArray);
+    renderList();
     message.style.display = "none";
   } else {
     // tableData.innerHTML=`<h1 class="errorMessage">No Data Found For This Category</h1>`
@@ -61,7 +64,6 @@ filterOption.addEventListener("change", (e) => {
   }
 });
 
-// console.log(existingCateogoryFromLocalStorage.length);
 if (existingCateogoryFromLocalStorage.length == 0) {
   localStorage.setItem("existingCateogory", JSON.stringify(existingCateogory));
   existingCateogoryFromLocalStorage = JSON.parse(
@@ -126,6 +128,8 @@ userDefineCateogory.addEventListener("change", (event) => {
     Cateogory.append(options);
   }
   userDefineCateogory.value = "";
+
+
 });
 
 //A blank array to store the data of input fields
@@ -155,7 +159,7 @@ document
   });
 
 // function to render the newly created data in the Table
-function renderList(filteredArray) {
+function renderList() {
   tableData.innerText = "";
   //if our array length = 0
   let expenditure = 0;
@@ -190,7 +194,8 @@ function renderList(filteredArray) {
         ? 0
         : totalBudgetFromLocalStorage - expenditure;
   }
-  if (filteredArray.length > 0) {
+ 
+   if(filteredArray.length >= 1) {
     tableData.innerText = "";
     expenditure = 0;
     for (let i = 0; i < filteredArray.length; i++) {
@@ -202,10 +207,10 @@ function renderList(filteredArray) {
        <td id="cat">${expenses.cateogory}</td>
        <td id="pri">${expenses.price}</td>
        <td id="dat">${expenses.date}</td>
-       <td><span id=${i} style="cursor:pointer" class="material-symbols-outlined deleteBtn">
+       <td><span id=${filteredIndex[i]} index=${i} style="cursor:pointer" class="material-symbols-outlined deleteBtn">
        delete
        </span>
-       <span id=${i} style="cursor:pointer" class="material-symbols-outlined updateBtn">
+       <span id=${filteredIndex[i]} index=${i} style="cursor:pointer" class="material-symbols-outlined updateBtn">
        sync_alt
        </span></td>
        `;
@@ -220,15 +225,33 @@ function renderList(filteredArray) {
           : totalBudgetFromLocalStorage - expenditure;
     }
   }
+  
 }
 
 ////==============================UPDATE MODAL===================================>>>>>>
 let indexToUpdate;
+let filterIndexValue 
 tableData.addEventListener("click", (event) => {
+  
   if (event.target.classList.contains("deleteBtn")) {
     let index = parseInt(event.target.id);
     expenseList.splice(index, 1);
     localStorage.setItem("expenseData", JSON.stringify(expenseList));
+
+    if(filteredArray.length>0)
+    {
+      filterIndexValue= parseInt(event.target.getAttribute("index"));
+      filteredArray.splice(filterIndexValue,1)
+      if(filteredArray.length==0)
+      {
+       tableData.innerText=""
+       message.style.display = "block";
+       return
+      }
+    }
+    
+
+    renderList();
   }
 
   //WRITING LOGIC TO UPDATE THE DATA IN THE MODAL
@@ -248,16 +271,17 @@ tableData.addEventListener("click", (event) => {
         newOption.textContent = cateogory;
         updateCateogoryOption.append(newOption);
       }
-    });
+     });
     updatePriceinput.value = upadatePrice;
     updateDateinput.value = updateDate;
     //displaying the Update form
     updateForm.style.display = "block";
-  }
-  // renderList();
+  }  
+  
 });
 
 updateForm.addEventListener("submit", (event) => {
+  
   event.preventDefault();
   const finalOptionToUpdate = updateCateogoryOption.value;
   const finalPriceToUpdate = updatePriceinput.value;
@@ -269,16 +293,18 @@ updateForm.addEventListener("submit", (event) => {
     date: finalDateToUpdate,
   };
   // console.log(updatedExpense);
+
   expenseList.splice(indexToUpdate, 1, updatedExpense);
   localStorage.setItem("expenseData", JSON.stringify(expenseList));
 
+  
+  if(filteredArray.length>0)
+  {
+    filteredArray.splice(filterIndexValue,1,updatedExpense)
+  }
   //hiding the Update form
   updateForm.style.display = "none";
-  if (filteredArray.length > 0) {
-    renderList(filteredArray);
-  } else {
-    renderList();
-  }
+  renderList()
 });
 
 //writing logic to close the upadate window if clicked on CANCEL UPDATE BUTTON

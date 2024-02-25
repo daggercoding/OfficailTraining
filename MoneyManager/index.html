@@ -60,15 +60,20 @@
                  <option value="none" selected disabled hidden>
                   Select Your Cateogory
                 </option>
+                <!-- <option value="Shopping" selected>
+                  Shopping
+                </option> -->
             </select>
           </div>
           <div>
             <label for="Price">Price</label>
             <input name="Price" type="number" id="expensePrice" required />
+            <!-- <input name="Price" type="number" id="expensePrice" value="1000" required /> -->
           </div>
           <div>
             <label for="Date">Date</label>
             <input name="Date" type="date" id="expenseDate" required />
+            <!-- <input name="Date" type="date" id="expenseDate" value="12-02-2024" /> -->
           </div>
         </div>
         <button id="submitButton" type="submit">Add Expense</button>
@@ -78,7 +83,7 @@
           <thead>
             <tr>
               <th>Cateogory<span><select id="filterOptionSelector">
-                  <option value="none" selected disabled hidden>Choose to Filter</option>
+                  <option value="none" selected disabled hidden>All</option>
                   <option value="All">All</option>
                   </select>
               </span></th>
