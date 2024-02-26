@@ -130,11 +130,7 @@ userDefineCateogory.addEventListener("change", (event) => {
     options.textContent = usercateogory;
     options.value = usercateogory;
     options.setAttribute("selected", "");
-    const option1=document.createElement("option")
-    option1.textContent = usercateogory;
-    option1.value = usercateogory;
     Cateogory.append(options);
-    filterOption.append(option1)
   }
   userDefineCateogory.value = "";
 });
@@ -280,7 +276,7 @@ tableData.addEventListener("click", (event) => {
     const upadatePrice = expenseList[event.target.id].price;
     const updateDate = expenseList[event.target.id].date;
     indexToUpdate = event.target.id;
-    filterIndexValue=parseInt(event.target.getAttribute("index"));
+
     updateCateogoryOption.innerHTML = `<option selected value=${updateCateogory}>${updateCateogory}</option>`;
 
     existingCateogoryFromLocalStorage.map((cateogory) => {
@@ -321,27 +317,26 @@ updateForm.addEventListener("submit", (event) => {
   {
     alert("Your Do not have sufficient fund to update")
     updateForm.style.display = "none";
-  }else if(filteredArray.length>0){
+  }else{
+    expenseList.splice(indexToUpdate, 1, updatedExpense);
+    localStorage.setItem("expenseData", JSON.stringify(expenseList));
+
+    if(filteredArray.length>0)
+    {
         expenditure=0
-        expenseList.filter((obj)=>{
+        expenseList.filter((obj,index)=>{
+        console.log(`index${index} and price ${obj.price}`)
         expenditure+=parseInt(obj.price)
        })
-       expenditure=expenditure-previousPrice+parseInt(finalPriceToUpdate)
+       expenditure=expenditure-previousPrice+finalPriceToUpdate*1
        if(expenditure>totalBudgetFromLocalStorage)
        {
         alert("Your Do not have sufficient fund to update")
         updateForm.style.display = "none";
        }else{
-        console.log(filterIndexValue)
-        expenseList.splice(indexToUpdate, 1, updatedExpense);
-        localStorage.setItem("expenseData",JSON.stringify(expenseList))
         filteredArray.splice(filterIndexValue,1,updatedExpense)
-        updateForm.style.display = "none";
-        renderList()
        }
-  }else{
-    expenseList.splice(indexToUpdate, 1, updatedExpense);
-    localStorage.setItem("expenseData", JSON.stringify(expenseList));
+    }
     //hiding the Update form
     updateForm.style.display = "none";
     renderList()

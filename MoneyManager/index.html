@@ -24,7 +24,7 @@
 
     <div class="container">
       <div id="details">
-        <div>Total Budget <span id="total"></span></div>
+        <div>Total Budget <br/> <span id="total"></span></div>
         <div>
           Total Expense <br />
           <span id="spend"></span>
@@ -60,9 +60,9 @@
                  <option value="none" selected disabled hidden>
                   Select Your Cateogory
                 </option>
-                <!-- <option value="Shopping" selected>
+                <!-- <option value="Shopping" selected> -->
                   Shopping
-                </option> -->
+                </option>
             </select>
           </div>
           <div>
@@ -73,7 +73,6 @@
           <div>
             <label for="Date">Date</label>
             <input name="Date" type="date" id="expenseDate" required />
-            <!-- <input name="Date" type="date" id="expenseDate" value="12-02-2024" /> -->
           </div>
         </div>
         <button id="submitButton" type="submit">Add Expense</button>
@@ -97,6 +96,7 @@
           </tr>
         </table>
         <span id="message">No Data Found For This Category</span>
+        <span id="blankMessage">Feeling Hungry Please Feed Me :(</span>
       </div>
       <div>
         <h4>Your Total Expense is : <span id="totalAmount">0</span></h4>
