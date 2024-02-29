@@ -238,7 +238,7 @@ tbody td {
   background-color: #4caf9f;
   color: white;
   border-radius: 10px;
-  cursor: pointer;
+  /* cursor: pointer; */
   width: 158px;
   transition: ease-in-out 0.5s;
 }
@@ -297,7 +297,7 @@ tbody td {
 h4{
   text-align: center;
   background: black;
-  width: 98%;
+  width: 50%;
   color: white;
   padding: 6px;
   border-radius: 5px;
@@ -305,7 +305,28 @@ h4{
 
 ::placeholder{
   font-size: 12px;
+
+  
 }
 
+#clearContainer{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 90%;
+  background-color: #191616;
+  padding: 10px;
+  margin-left:2%;
+  border-radius: 5px;
+}
+
+#clearContainer button{
+  background: #be1414;
+  color: white;
+  border: 1px solid white;
+  padding: 0.8%;
+  border-radius: 8px;
+  cursor: pointer;
+}
 
 

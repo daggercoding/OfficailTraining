@@ -24,6 +24,7 @@
 
     <div class="container">
       <div id="details">
+        <!--====================BUDGET SECTION===========================-->
         <div>Total Budget <br/> <span id="total"></span></div>
         <div>
           Total Expense <br />
@@ -31,7 +32,8 @@
         </div>
         <div>Remaining <span style="display: block" id="remaining"></span></div>
       </div>
-
+        <!--================TOTAL BUDGET AND USER CATEGORY ===================-->
+      
       <form id="expense-form">
         <div id="userInput">
           <div>
@@ -53,6 +55,8 @@
             />
           </div>
         </div>
+        <!--====================EXPENSE LIST ENTRY FORM===========================-->
+
         <div class="container1">
           <div>
             <label for="Cateogory">Cateogory</label>
@@ -60,19 +64,17 @@
                  <option value="none" selected disabled hidden>
                   Select Your Cateogory
                 </option>
-                <!-- <option value="Shopping" selected> -->
                   Shopping
                 </option>
             </select>
           </div>
           <div>
             <label for="Price">Price</label>
-            <input name="Price" type="number" id="expensePrice" required />
-            <!-- <input name="Price" type="number" id="expensePrice" value="1000" required /> -->
+            <input name="Price" type="number" id="expensePrice" />
           </div>
           <div>
             <label for="Date">Date</label>
-            <input name="Date" type="date" id="expenseDate" required />
+            <input name="Date" type="date" id="expenseDate" />
           </div>
         </div>
         <button id="submitButton" type="submit">Add Expense</button>
@@ -98,8 +100,9 @@
         <span id="message">No Data Found For This Category</span>
         <span id="blankMessage">Feeling Hungry Please Feed Me :(</span>
       </div>
-      <div>
+      <div id="clearContainer">
         <h4>Your Total Expense is : <span id="totalAmount">0</span></h4>
+        <button id="clearList">Clear List</button>
       </div>
 
       <form id="updateContainer">
@@ -115,7 +118,7 @@
 
         <div>
           <label for="updatePrice">Price</label>
-          <input name="updatePrice" type="number" id="updatePrice" value=""/>
+          <input name="updatePrice" onchange="validateInput()" type="number" id="updatePrice" value=""/>
         </div>
 
         <div>
