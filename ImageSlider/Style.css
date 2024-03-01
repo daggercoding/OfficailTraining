@@ -1,0 +1,24 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    background-color: bisque;
+}
+#container{
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+#innerContainer{
+   
+    width: 100%;
+    height: 90%;
+}
+
+#innerConainer img{
+    border-radius: 1000px;
+}
