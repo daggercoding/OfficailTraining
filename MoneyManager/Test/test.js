@@ -131,20 +131,82 @@
 //   });
 // }
 // hello().then(data=>console.log(data)).catch(data=>console.log(data))
-console.log("before asyncronus code");
+// console.log("before asyncronus code");
 
-function hello() {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      if (2 != 2) {
-        resolve("it is equal");
-      } else {
-        reject("not equal");
-      }
-    }, 2000);
-    console.log("hello hello")
-  });
-}
-hello().then(data=>console.log(data)).catch(err=>console.log(err))
+// function hello() {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       if (2 != 2) {
+//         resolve("it is equal");
+//       } else {
+//         reject("not equal");
+//       }
+      
+//     }, 2000);
+//     console.log("hello hello")
+//   });
+// }
+// hello().then(data=>console.log(data)).catch(err=>console.log(err))
 
-console.log("after asyncronus code");
+// console.log("after asyncronus code");
+
+
+////===========================CALL BIND AND APPLY============================>>>>>
+
+// let value=10
+// const obja = {
+//   name:"vishal singh",
+//   age:24
+// }
+
+// function hello(n,a,m)
+// {
+// console.log(`my name is ${this} ${n} ${a} ${m}`)
+// }
+
+// const obja2 = {
+//   name:"harshita",
+//   age:24
+// }
+
+// let hell=hello.bind(value)
+// hell(12,22,33)
+
+
+// let age = 10
+
+// let person1={
+//   name:"vishal singh",
+//   age:24,
+//   calcAge:function(){
+//   console.log(this.age)
+//   }
+// }
+
+// let person2={
+//   name:"harshita rajawat",
+//   age:26
+// }
+
+// person1.calcAge.call(person2)
+// person1.calcAge()
+
+// var status="hi"
+
+// setTimeout(()=>{
+//   const obj={
+//     status:"hello",
+//     getStatus(){
+//       console.log(this.status)
+//     }
+//   }
+//   obj.getStatus()
+//   obj.getStatus.call(this)
+
+// },2000)
+
+
+let arr=[1,2,3,4,5,6]
+
+let newArr=arr.with(2,10)
+console.log(newArr)
