@@ -59,7 +59,7 @@ let filteredArray = [];
 let filteredIndex = [];
 let selectedFilter="All"
 filterOption.addEventListener("change", (e) => {
-  debugger
+   
   selectedFilter = e.target.value;
   filteredIndex.splice(0);
   filteredArray = expenseList.filter((obj, index) => {
@@ -156,7 +156,7 @@ document
 let indexToUpdate;
 let filterIndexValue;
 tableData.addEventListener("click", (event) => {
-  debugger
+   
   if (event.target.classList.contains("deleteBtn")) {
     let index = parseInt(event.target.id);
     expenseList.splice(index, 1);
@@ -197,7 +197,7 @@ tableData.addEventListener("click", (event) => {
 
 updateForm.addEventListener("submit", (event) => {
   event.preventDefault();
-  debugger
+   
   const finalOptionToUpdate = updateCateogoryOption.value;
   const finalPriceToUpdate = updatePriceinput.value;
   const finalDateToUpdate = updateDateinput.value;
@@ -254,7 +254,7 @@ updateCancelButton.addEventListener(
 
 ////=======================    RENDER FUNCTION  ===========================>>>>>>
 function renderList() {
-  debugger
+   
   tableData.innerText = "";
   //if our array length = 0
   expenditure = 0;

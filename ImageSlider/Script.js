@@ -14,14 +14,15 @@ console.log(photos)
 setInterval(()=>{
 if(count<=photos.length-1)
 {
- document.querySelector("h1").innerText=photos[count].title
-    container.innerHTML=`<img height="100%" width="100%" src="${photos[count].url}"/>`
+    
+    document.querySelector("h1").innerText=photos[count].title
+    container.innerHTML=`<img id="imgStyle" height="100%" width="100%" src="${photos[count].url}"/>`
     count++
 }
 else{
    count=0
    console.log(`else ${count}`)
 }
-},1)   
+},300)   
 
 }
