@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Search</title>
+</head>
+<body>
+    <button onclick="searchRandom()">Search Random</button>
+
+    <script>
+        function searchRandom() {
+            // Array of random words for search
+            var randomWords = ["apple", "banana", "cat", "dog", "elephant", "flower"];
+            
+            // Choose a random word
+            var randomIndex = Math.floor(Math.random() * randomWords.length);
+            var randomWord = randomWords[randomIndex];
+            
+            // Construct search URL (Google search used here)
+            var searchUrl = "ab"+ encodeURIComponent(randomWord);
+            
+            // Open a new tab and perform search
+            window.open(searchUrl, "_blank");
+        }
+    </script>
+</body>
+</html>
