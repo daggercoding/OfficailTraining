@@ -1,0 +1,37 @@
+#formContainer{
+    width: 98%;
+    display: flex;
+    padding: 1%;
+    justify-content: space-between;
+
+}
+#formContainer div{
+    border-radius: 5px;
+    border:1px solid red;
+    margin:1px;
+    padding: 5px;
+
+}
+#formContainer h1{
+    font-size: 1.2rem;
+}
+
+#userDetailsContainer{
+    height:100vh;
+    display: flex;
+    justify-content: center;
+}
+
+#userDetails td{
+    padding: 5px;
+    margin:10px;
+    border: 1px solid black;
+}
+#userDetails span{
+    margin: 2px;
+    padding: 2px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: cadetblue;
+    cursor: pointer;
+}
