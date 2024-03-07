@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const app = express();
 
 app.use(cors());
-app.use(express.json()); // Added parentheses to invoke express.json middleware
+app.use(express.json());
 
 mongoose
   .connect(
