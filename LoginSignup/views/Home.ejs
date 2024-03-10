@@ -22,6 +22,8 @@
           <td><%= el.name %></td>
           <td><%= el.email %></td>
           <td><%= el.password %></td>
+          <td><a href="/update/<%=el._id%>">UPDATE</a></td>
+          <td><a href="/delete/<%=el._id%>">DELETE</a></td>
         </tr>
         <% }); %>
       </tbody>
