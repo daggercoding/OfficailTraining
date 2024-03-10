@@ -8,13 +8,7 @@ app.set("view engine", "ejs");
 app.use(express.static("Public"));
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.get("/", (req, res) => {
-  res.render("login");
-});
-
-app.get("/signup", (req, res) => {
-  res.render("signup");
-});
+////================================================>>>>MONGODB CONNECTION
 
 mongoose
   .connect("mongodb://127.0.0.1:27017/signup")
@@ -26,7 +20,49 @@ const userDetail = new mongoose.Schema({
   password: String,
 });
 
+
 const userData = mongoose.model("userNameEmail", userDetail);
+
+////======================================================>>>>>> END POINTS
+
+app.get("/", (req, res) => {
+  res.render("login");
+});
+
+app.get("/signup", (req, res) => {
+  res.render("signup");
+});
+
+app.get("/Home", async(req, res) => {
+  const data= await userData.find()
+  res.render("Home",{data})
+});
+
+app.get("/delete/:id",async(req,res)=>{
+ const id = req.params.id
+ await userData.findByIdAndDelete(id)
+ res.redirect("/Home")
+})
+
+app.get("/update/:id",async(req,res)=>{
+  const id = req.params.id
+  const userUpdate=await userData.findById(id)
+  res.render("Update",{userUpdate})
+  
+})
+
+app.post("/updateUser/:id",async(req,res)=>{
+  const id=req.params.id
+  try{
+  await userData.findByIdAndUpdate(id,{$set:{name:req.body.userName,email:req.body.userEmail}})
+  res.redirect("/Home")
+  }catch(err)
+  {
+  console.log(err.message)
+  }
+
+  
+})
 
 ////============================================>>>>>> SENDING DATA TO DATABASE
 
@@ -70,16 +106,15 @@ app.post("/login", async (req, res) => {
       check[0].password
     );
     if (passwordMatch) {
-      let allData = await userData.find();
-      app.get("/Home", (req, res) => {
-        res.render("Home", { data: allData });
-      });
-      res.redirect("/Home");
+      res.render("/Home");
     } else {
       res.send("Your Entered PassWord is Wrong ):");
     }
   }
 });
+
+
+
 
 app.get("/logout", (req, res) => {
   res.redirect("/");
