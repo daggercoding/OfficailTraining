@@ -23,7 +23,6 @@ const updateDateinput = document.getElementById("updateDate");
 const message = document.getElementById("message");
 const blankMessage = document.getElementById("blankMessage");
 const filterOption = document.getElementById("filterOptionSelector");
-const clearButton=document.getElementById("clearList")
 
 ////========================DATA FROM LOCAL STORAGE==============================>>>>>
 
@@ -54,12 +53,13 @@ budgetInput.addEventListener("change", (event) => {
     }
   }
 });
+
 //written logic to filter the data from orignal array
 let filteredArray = [];
 let filteredIndex = [];
 let selectedFilter="All"
+
 filterOption.addEventListener("change", (e) => {
-   
   selectedFilter = e.target.value;
   filteredIndex.splice(0);
   filteredArray = expenseList.filter((obj, index) => {
@@ -73,11 +73,10 @@ filterOption.addEventListener("change", (e) => {
     renderList();
     message.style.display = "none";
   } else {
-    // tableData.innerHTML=`<h1 class="errorMessage">No Data Found For This Category</h1>`
     tableData.innerText = "";
-    spend.innerText = 0;
+    spend.innerText = expenditure;
     total.innerText = 0;
-    remaining.innerText = 0;
+    remaining.innerText = totalBudgetFromLocalStorage-expenditure;
     message.style.display = "block";
     blankMessage.style.display = "none";
   }
@@ -86,7 +85,7 @@ filterOption.addEventListener("change", (e) => {
 //writing the logic to add the userCateogory decided by user
 userDefineCateogory.addEventListener("change", (event) => {
   let usercateogory = event.target.value.trim();
-  usercateogory =
+   usercateogory =
     usercateogory.charAt(0).toUpperCase() +
     usercateogory.substr(1).toLowerCase();
   if (
@@ -118,7 +117,6 @@ document
   .addEventListener("submit", function (e) {
     e.preventDefault();
 
-
     let cateogory = Cateogory.value;
     let price = Price.value;
     let date = Date.value;
@@ -143,11 +141,10 @@ document
     } else {
       expenseList.push(currentExpense);
       localStorage.setItem("expenseData", JSON.stringify(expenseList))
-      filteredArray.push(currentExpense)
-      filteredIndex.push(expenseList.length-1)
       blankMessage.style.display = "none";
       message.style.display = "none";
-      filterOption.selected = "All";
+      
+      filteredArray=[]
       renderList();
     }
   });
@@ -156,7 +153,6 @@ document
 let indexToUpdate;
 let filterIndexValue;
 tableData.addEventListener("click", (event) => {
-   
   if (event.target.classList.contains("deleteBtn")) {
     let index = parseInt(event.target.id);
     expenseList.splice(index, 1);
@@ -197,7 +193,6 @@ tableData.addEventListener("click", (event) => {
 
 updateForm.addEventListener("submit", (event) => {
   event.preventDefault();
-   
   const finalOptionToUpdate = updateCateogoryOption.value;
   const finalPriceToUpdate = updatePriceinput.value;
   const finalDateToUpdate = updateDateinput.value;
@@ -209,8 +204,7 @@ updateForm.addEventListener("submit", (event) => {
     alert("Price Should be Greater then 0");
     return
   }
-
-  const updatedExpense = {
+    const updatedExpense = {
     cateogory: finalOptionToUpdate,
     price: finalPriceToUpdate,
     date: finalDateToUpdate,
@@ -252,27 +246,36 @@ updateCancelButton.addEventListener(
   (e) => (updateForm.style.display = "none")
 );
 
-////=======================    RENDER FUNCTION  ===========================>>>>>>
+////==================================================>>>>>> RENDER FUNCTION 
 function renderList() {
-   
+  debugger
+  expenditure = 0;
   tableData.innerText = "";
   //if our array length = 0
-  expenditure = 0;
   if (expenseList.length == 0) {
     total.innerText = 0;
     spend.innerText = 0;
     remaining.innerText = totalBudgetFromLocalStorage;
     blankMessage.style.display = "block";
   }
-  if (filteredArray.length > 0) {
-    // clearButton.disabled=true
-    tableData.innerText = "";
-    expenditure = 0;
-    clearButton.style.display="none"
-    for (let i = 0; i < filteredArray.length; i++) {
-      //sooting the object from the Array
-      const expenses = filteredArray[i];
+  //if our array length is greater then 0
+  if(expenseList.length>0)
+  {
+    for(let i=0;i<expenseList.length;i++)
+    {
+      const expenses = expenseList[i];
       expenditure += parseInt(expenses.price);
+      total.innerText = expenditure;
+      spend.innerText = expenditure;
+      message.style.display = "none";
+    }
+}
+
+  if (filteredArray.length > 0) {
+    tableData.innerText = "";
+    for (let i = 0; i < filteredArray.length; i++) {
+      // creating the object from the Array
+      const expenses = filteredArray[i];
       const newRow = document.createElement("tr");
       newRow.innerHTML = `
        <td id="cat">${expenses.cateogory}</td>
@@ -286,18 +289,16 @@ function renderList() {
        </span></td>
        `;
       tableData.appendChild(newRow);
-      total.innerText = expenditure;
-      spend.innerText = expenditure;
-
+      filterOption.value=selectedFilter
       //inserting the remaining amount to third div
       remaining.innerText =
         totalBudgetFromLocalStorage == 0
           ? 0
           : totalBudgetFromLocalStorage - expenditure;}
   } else {
-    for (let i = 0; i < expenseList.length; i++) {
+      filterOption.value="All"
+      for (let i = 0; i < expenseList.length; i++) {
       const expenses = expenseList[i];
-      expenditure += parseInt(expenses.price);
       const newRow = document.createElement("tr");
       newRow.innerHTML = `
        <td id="cat">${expenses.cateogory}</td>
@@ -312,10 +313,6 @@ function renderList() {
        `;
 
       tableData.appendChild(newRow);
-      total.innerText = expenditure;
-      spend.innerText = expenditure;
-
-      //inserting the remaining amount to third div
       remaining.innerText =
         totalBudgetFromLocalStorage == 0
           ? 0
@@ -332,7 +329,6 @@ Price.addEventListener("change", inputValidate);
 Date.addEventListener("change", inputValidate);
 submitButton.disabled = true;
 function inputValidate() {
-
   if (
     Cateogory.value == "none" ||
     Cateogory.value == "" ||
@@ -369,15 +365,6 @@ function getLocalStorage(key) {
 function setLocalStorage(key, value) {
   localStorage.setItem(key, JSON.stringify(value));
 }
-
-document.getElementById("clearList").addEventListener("click", () => {
-  if (window.confirm("Are You Sure You Want To Delete The List?")) {
-    localStorage.removeItem("expenseData");
-    expenseList = [];
-    renderList();
-  }
-});
-
 
 
 
