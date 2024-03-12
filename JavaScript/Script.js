@@ -251,7 +251,27 @@
 // }
 
 
-//// =======================================>>>>>> FIND THE SECOND LARGEST OF THE ARRAY
-let array =[12,2,3,4,6,5,4]
+// //// =======================================>>>>>> FIND THE SECOND LARGEST OF THE ARRAY
+// let array =[12,2,3,4,6,5,4]
 
-array.sort((a-b)=>)
+// array.sort((a-b)=>)
+
+//=================================================>>>>> find prime number
+
+function isPrime(num)
+{
+    for(let i=2 ; i<num ; i++)
+    {
+        if(num%i==0)
+        {
+            return `${num} is not a prime number`
+        }
+    }
+    return `${num} is a prime number`
+}
+
+let number=100
+for(let i=1 ; i<=number ;i++)
+{
+    console.log(isPrime(i))
+}

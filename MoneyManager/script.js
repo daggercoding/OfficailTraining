@@ -289,6 +289,7 @@ function renderList() {
        </span></td>
        `;
       tableData.appendChild(newRow);
+      
       filterOption.value=selectedFilter
       //inserting the remaining amount to third div
       remaining.innerText =
