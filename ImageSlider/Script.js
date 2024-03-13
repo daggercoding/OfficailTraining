@@ -1,5 +1,4 @@
 let photos
-const container =document.getElementById("innerContainer")
 fetch("https://api.slingacademy.com/v1/sample-data/photos?offset=5&limit=132")
 .then((resp)=>resp.json())
 .then((data)=>{
@@ -7,6 +6,7 @@ fetch("https://api.slingacademy.com/v1/sample-data/photos?offset=5&limit=132")
     render()
 })
 .catch((err)=>console.log(err.message))
+
 function render()
 {
 let count = 0

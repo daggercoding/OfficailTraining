@@ -1,0 +1,47 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#detailContainer{
+    display: flex;
+    justify-content: space-between;
+    width: 100vw;
+    background-color: blanchedalmond;
+    margin:15px 0px;
+    padding: 15px;
+}
+#detailContainer div{
+    border:1px solid black;
+    width: 33%;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+table{
+    width: 100vw;
+    border: 1px solid black;
+    min-height: 8vh;
+    border-collapse: collapse;
+    padding: 2px;
+}
+th{
+    border: 1px solid red;
+    border-bottom:2px solid black;
+    font-size: 1.3rem;
+    font-family: system-ui;
+}
+td{
+    border: 1px solid black;
+    text-align: center;
+    padding: 2px;
+}

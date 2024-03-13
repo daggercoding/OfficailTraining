@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Register</title>
+    <link rel="stylesheet" href="./Style.css"/>
+</head>
+<body>
+    <div id="container">
+        <h1>Employee Register</h1>
+        <div id="detailContainer">
+            <div><input style="width: 100%; height: 100%; padding: 2px;" id="filerInput" type="text" placeholder="Search For USer" ></input></div>
+            <div><button style="width: 100%; height: 100%;" id="openForm">Enter User Detail</button></div>
+            <div>Total Employee : <span id="employeCount">10</span></div>
+        </div>
+        <table>
+            <thead>
+               <tr>
+                   <th>ID</th>
+                   <th>NAME</th>
+                   <th>Age</th>
+                   <th>SALARY</th>
+                   <th>OPERATIONS</th>
+               </tr>
+            </thead>
+            <tbody id="tableData">
+                <tr>
+                    <td>TESTING DATA</td>
+                    <td>TESTING DATA</td>
+                    <td>TESTING DATA</td>
+                    <td>TESTING DATA</td>
+                    <td>TESTING DATA</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <form id="userForm" style="margin: 10px;">
+            <label for="name">Name : 
+            <input type="text" name="name" id="name"></input></label>
+
+            <label for="age">Age : </label>
+            <input type="text" name="age" id="age"></input>
+
+            <label for="salary">Salary : </label>
+            <input type="number" name="salary" id="salary"></input>
+             
+            <button type="submit">Submit</button>
+        </form>
+
+    </div>
+    <script src="./Script.js"></script>
+</body>
+</html>
