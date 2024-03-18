@@ -6,6 +6,7 @@ of natural numbers up to a certain point). n can be 1000
  function generateTriangularNumber(n) {
  return (n * (n + 1)) / 2;
  }
+
 2.Count Divisors: Create a function to count the divisors of a given number. This might involve 
 prime factorization and counting combinations.
 3.Iterate and Check: Iterate through triangular numbers, calculate the number of divisors for each, 

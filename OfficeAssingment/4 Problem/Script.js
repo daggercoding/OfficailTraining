@@ -28,7 +28,7 @@
 //   }
 // });
 
-//==============================================>>>>>> GENERATING TRIANGULAR NUMBERS\
+==============================================>>>>>> GENERATING TRIANGULAR NUMBERS\
 function generateTriangularNumber(n) {
   return (n * (n + 1)) / 2;
 }
