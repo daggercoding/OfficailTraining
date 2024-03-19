@@ -2,10 +2,15 @@ const express = require("express");
 const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const cookieParser = require('cookie-parser');
+require("dotenv").config()
+const jwt = require("jsonwebtoken")
 
 const app = express();
 app.set("view engine", "ejs");
 app.use(express.static("Public"));
+app.use(cookieParser());
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 ////================================================>>>>MONGODB CONNECTION
@@ -20,8 +25,24 @@ const userDetail = new mongoose.Schema({
   password: String,
 });
 
-
 const userData = mongoose.model("userNameEmail", userDetail);
+
+////====================================>>>>>> CREATING MIDDLEWARE TO PROTECT PAGE
+
+const verifyToken = (req,res,next)=>{
+  const token = req.cookies.token;
+  if (!token) {
+      return res.redirect('/'); // Redirect to login if token not present
+  }else
+   try{
+    const isValid=jwt.verify(token,process.env.SECRETKEY)
+    isValid?next():null
+  }catch(err){
+    res.status(400).send("User Details Not Found in DataBase")
+   }
+}
+
+
 
 ////======================================================>>>>>> END POINTS
 
@@ -30,42 +51,20 @@ app.get("/", (req, res) => {
 });
 
 app.get("/signup", (req, res) => {
-  res.render("signup");
+   res.render("signup");
 });
 
-app.get("/Home", async(req, res) => {
+app.get("/home",verifyToken, async(req, res, next) => {
   const data= await userData.find()
-  res.render("Home",{data})
+  res.render("home",{data})
 });
 
-app.get("/delete/:id",async(req,res)=>{
- const id = req.params.id
- await userData.findByIdAndDelete(id)
- res.redirect("/Home")
-})
-
-app.get("/update/:id",async(req,res)=>{
-  const id = req.params.id
-  const userUpdate=await userData.findById(id)
-  res.render("Update",{userUpdate})
-  
-})
-
-app.post("/updateUser/:id",async(req,res)=>{
-  const id=req.params.id
-  try{
-  await userData.findByIdAndUpdate(id,{$set:{name:req.body.userName,email:req.body.userEmail}})
-  res.redirect("/Home")
-  }catch(err)
-  {
-  console.log(err.message)
-  }
-
-  
-})
+app.get("/logout", (req, res) => {
+  res.clearCookie('token');
+  res.redirect("/");
+});
 
 ////============================================>>>>>> SENDING DATA TO DATABASE
-
 app.post("/signup", async (req, res) => {
   const users = new userData({
     name: req.body.userName,
@@ -87,38 +86,77 @@ app.post("/signup", async (req, res) => {
     res.send("EMAIL ALREADY EXIST PLEASE SELECT ANOTHER USERNAME");
   } else {
     await users.save();
-    res.redirect("/");
+
+    const token= jwt.sign({_id:users._id},process.env.SECRETKEY,{
+      expiresIn:process.env.EXPIRE_IN
+    })
+
+    // res.redirect("/");
+    res.status(200).json({
+      status:"sucess",
+      token,
+      data:[
+        {
+          name: req.body.userName,
+          email: req.body.userEmail,
+          password: req.body.userPassword,
+        }
+      ]
+    })
   }
 });
 
 ////============================================>>>>>HANDLING AUTHORISATION
 
-app.post("/login", async (req, res) => {
-  const check = await userData.find({ name: req.body.userName });
+app.post("/login", async (req, res ) => {
+  const check = await userData.find({ name: req.body.userName })
   if (check.length < 1) {
-    res.send("THE ENTERED USER IS NOT A VALID USER PLEASE SIGNUP ):");
-    setTimeout(()=>{
-        res.redirect("/")
-    },1000)
+    res.redirect("/")
   } else {
     const passwordMatch = await bcrypt.compare(
       req.body.userPassword,
       check[0].password
     );
     if (passwordMatch) {
-      res.render("/Home");
+      let token = jwt.sign({_id:check[0]._id},process.env.SECRETKEY,{
+        expiresIn:process.env.EXPIRE_IN
+      })
+      res.cookie('token', token, { httpOnly: true ,expire:process.env.EXPIRE_IN});
+      res.redirect('/home');
     } else {
-      res.send("Your Entered PassWord is Wrong ):");
+      res.send("Your Entered PassWord is Wrong):");
     }
   }
 });
 
 
+////=====================================>>>>>Remaining
+app.get("/delete/:id",async(req,res)=>{
+  const id = req.params.id
+  await userData.findByIdAndDelete(id)
+  res.redirect("/home")
+ })
+ 
+ app.get("/update/:id",async(req,res)=>{
+   const id = req.params.id
+   const userUpdate=await userData.findById(id)
+   res.render("Update",{userUpdate})
+   
+ })
+ 
+ app.post("/updateUser/:id",async(req,res)=>{
+   const id=req.params.id
+   try{
+   await userData.findByIdAndUpdate(id,{$set:{name:req.body.userName,email:req.body.userEmail}})
+   res.redirect("/Home")
+   }catch(err)
+   {
+   console.log(err.message)
+   }
+ })
+ 
 
 
-app.get("/logout", (req, res) => {
-  res.redirect("/");
-});
 
 app.listen(8000, () => {
   console.log("Server is up Baby ):");
