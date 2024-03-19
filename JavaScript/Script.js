@@ -386,3 +386,10 @@ function triangular(n)
 {
     return n*(n+1)/2
 }
+
+function toArray(obj) {
+return Object.keys(obj).map(key => [key, obj[key]])
+}
+toArray({ a: 1, b: 2 })
+
+[["a",1],["b",2]]
