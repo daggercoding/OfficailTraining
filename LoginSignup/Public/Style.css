@@ -33,3 +33,41 @@ form input{
     margin: auto;
     border-radius: 5px;
 }
+
+@media (max-width:600px){
+    #container{
+        background-color: rgba(255, 235, 205, 0.67);
+        width: 100vw;
+    }
+    form input{
+        width: 80vw;
+        padding: 10px;
+    }
+    #login{
+        margin-top: 90px;
+        margin-bottom: -90px;
+    }
+   
+    p{
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    }
+    #head{
+        text-align: center;
+    font-size: 4vh;
+    padding: 48px;
+    }
+    #link{
+        display: block;
+        text-align: center;
+        background: black;
+        color: white;
+        padding: 10px;
+        border: 1px solid red;
+        border-radius: 9px;
+        text-decoration: none;
+        font-size: 20px;
+    }
+
+}

@@ -33,13 +33,17 @@ const verifyToken = (req,res,next)=>{
   const token = req.cookies.token;
   if (!token) {
       return res.redirect('/'); // Redirect to login if token not present
-  }else
-   try{
+  }else{
+   
+    try{
     const isValid=jwt.verify(token,process.env.SECRETKEY)
-    isValid?next():null
+    isValid?next():res.redirect('/')
   }catch(err){
     res.status(400).send("User Details Not Found in DataBase")
    }
+  }
+
+ 
 }
 
 
@@ -54,7 +58,7 @@ app.get("/signup", (req, res) => {
    res.render("signup");
 });
 
-app.get("/home",verifyToken, async(req, res, next) => {
+app.get("/home",verifyToken, async(req, res) => {
   const data= await userData.find()
   res.render("home",{data})
 });
@@ -156,8 +160,6 @@ app.get("/delete/:id",async(req,res)=>{
  })
  
 
-
-
 app.listen(8000, () => {
-  console.log("Server is up Baby ):");
+  console.log("Server is up Baby.. ):");
 });
