@@ -1,9 +1,11 @@
+
 function walk(callback) {
   setTimeout(() => {
     console.log("i am goind on walk");
     callback();
   }, 2000);
 }
+
 
 function gym(callback) {
   setTimeout(() => {
@@ -393,3 +395,58 @@ return Object.keys(obj).map(key => [key, obj[key]])
 toArray({ a: 1, b: 2 })
 
 [["a",1],["b",2]]
+
+
+// let arrayTest=[1,2,3,4,5,6]
+
+// (arrayTest.toString())
+
+
+function callme(){
+  let name="vishal singh raj"
+  let func=()=>{
+    console.log(name)
+  }  
+  func()
+}
+callme()
+
+function sum(a,b){
+  c=a+b;
+  return c;
+}
+
+console.log(sum(1,2))
+
+let sum=(a,b)=>{
+  c=a+b;
+  return c;
+}
+
+console.log(sum(1,2))
+
+"use strict";
+
+const obj = {
+  i: 10,
+  b: () => console.log(this.i, this),
+  c() {
+    console.log(this.i, this);
+  },
+};
+
+obj.b(); // logs undefined, Window { /* … */ } (or the global object)
+obj.c(); // logs 10, Object { /* … */ }
+
+
+const objj1 = {
+  a: 10,
+};
+
+Object.defineProperty(objj1, "b", {
+  get: () => {
+    console.log(this.a, typeof this.a, this); // undefined 'undefined' Window { /* … */ } (or the global object)
+    return this.a + 10; // represents global object 'Window', therefore 'this.a' returns 'undefined'
+  },
+});
+console.log(objj1)
