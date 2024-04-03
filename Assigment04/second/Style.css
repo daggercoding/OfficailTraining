@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    background-color: cornsilk;
+    padding: 1%;
+}
+.container{
+    display: flex;
+    justify-content: space-around;
+    width: 100vw;
+    min-height: 90%;
+    padding: 0px 6%;
+    margin-top: 1%;
+}
+.con2{
+    width: 40%;
+    height: 60vh;
+    background-color: cadetblue;
+}
+.con1,.con3{
+    width: 25%;
+    height: 40vh;
+    background-color: blue;
+}
+
+.firstDiv{
+    background: black;
+    height: 35%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.secondDiv{
+    display: flex;
+    position: relative;
+    display: flex;
+}
+.secondDiv img{
+    position :absolute;
+    bottom: 50%;
+    border-radius: 50%; 
+    width: 20%;
+}
+.secondDiv p{
+    margin-left: 22%;
+    display: flex;
+    flex-direction: column;
+}
