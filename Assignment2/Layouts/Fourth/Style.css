@@ -1,0 +1,133 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    height: 100vh;
+    width: 100vw;
+    padding: 20px;  
+}
+.container div{
+    margin-bottom: 1px;
+    background-color: green;
+    min-height: 6%;
+}
+
+#flex{
+    display: flex;
+    background-color: white;
+}
+
+#right{
+  width: 50%;
+  background-color: blue;
+}
+#left{
+  width: 50%;
+  background-color:red;
+}
+
+
+.box2{
+    display: flex;
+}
+#box2l{
+width: 96%;
+}
+#box2r{
+width: 4%;
+background-color: blue
+}
+
+#R3l{
+    width: 4%;  
+    background-color: red
+}
+#R3m{
+    width:92%;
+}
+#R3r{
+    width: 4%;
+    background-color: blue
+}
+
+#R4l{
+    width: 96%;
+    background-color: red
+}
+#R4r{
+    width: 4%;
+    background-color: blue
+}
+
+
+.row5{
+    display: flex;
+    justify-content: center;
+}
+.row5 div{
+    background-color:red;
+    width: 3%;
+    margin: 4px;
+    color: red;
+}
+
+
+.row6{
+    display: flex;
+    justify-content: center;
+    background-color: red !important;
+}
+.row6 div{
+    background-color:blue;
+    width: 5%;
+    min-height: 6%;
+}
+
+
+#Row7{
+    
+    display: flex;
+    background-color: white;
+}
+#Row71{
+ min-width: 8%;
+ background-color: red;
+}
+#Row72{
+ min-width: 92%;
+ display: flex;
+ align-items: center;
+ background-color: blue;
+ 
+}
+#Row72 div{
+    width: 100%;
+    min-height:10px;
+    background-color:green ;
+}
+
+
+#Row8{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: rgb(229, 157, 63)
+   }
+#Row8 div{
+width: 20%;
+background-color: green;
+   }
+
+
+
+#Row9{
+ display: flex;
+ justify-content: space-evenly;
+ background-color: rgb(229, 157, 63)
+}
+#Row9 div{
+    width: 1%;
+    background-color: green !important;
+}
+
