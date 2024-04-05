@@ -5,23 +5,107 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JAVA SCRIPT</title>
     <style>
-        .gender{
-            color: black;
+        span{
+           background-color: blanchedalmond;
+            height: 2000px;
+            width: 30px;
         }
+    
     </style>
 </head>
 <body>
-    <h1 class="name age gender">WORKING</h1>
-    <button id="btn" onclick="handleClick(event)">vishl</button>
-
+    <div class="container">Vishal
+        <span>hello</span>
+    </div>
+    <div >testing</div>
+    <div>testing</div>
+    <div>testing</div>
+    <div>testing</div>
+    <button onclick="click()"></button>
+    
     <script>
-        function handleClick(e){
-            console.log(e)
-        }
-    </script>
-    
-    
-    <script src="./Script.js"></script>
+
+    //     const obj ={
+    //         age:24,
+    //         name:"vishal",
+    //         gender:"Male",
+    //         salary:1000
+    //     }
+    // let sum=0
+    // let count=0
+    // for(let key in obj ){
+    //     if(typeof obj[key] == "number"){
+    //      sum+=obj[key]
+    //     }else{
+    //       count++
+    //     }
+    // }
+    // console.log(sum/2)
+//    let sum=0
+//    let count=0
+//     let value = Object.values(obj)
+//      value.forEach((val)=>{ 
+//         if(typeof val == "number"){
+//           sum+=val 
+//         }
+//         if(typeof val == "string"){
+//          count++
+//         }
+//      })
+//      console.log(sum/count)
+
+// let num =100 
+// function prin(){
+//     return num++
+// }
+// console.log(prin())
+// console.log(prin())
+// console.log(prin())
+// console.log(prin())
+
+
+
+// function prn2(){
+
+//     let count=0
+//     function inner(){
+//         console.log(y)
+//     }
+//     inner()
+//     return ++count
+// }
+
+
+
+// console.log(prn2())
+// console.log(prn2())
+// console.log(prn2())
+// console.log(prn2())
+// console.log(prn2())
+// console.log(prn2())
+
+// function makeCounter() {
+//   let count = 0;
+
+//   return function() {
+//     return count++;
+//   };
+// }
+
+// let counter = makeCounter();
+// function greet(name="hello"){
+//     console.log(`hello ${name} and your roel is: ${this[3]}`);
+
+// }
+// let role =[1,2,3,4]
+
+// greet.call(role, "Vishal Singh");
+// greet.apply(role, ["vishal sign"]);
+// let useLater = greet.bind(role);
+// useLater()
+    // </script>
+
+    <script src="./PalindromeInString.js"></script>
 
 </body>
 </html>
