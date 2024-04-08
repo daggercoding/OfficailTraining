@@ -22,6 +22,7 @@
 // ];
 //================================>>>>>GENERATING 2D ARRAY
 let grid = [];
+
 for (let i = 0; i < 20; i++) {
   let col = [];
   for (let j = 0; j < 20; j++) {
