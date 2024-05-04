@@ -17,6 +17,7 @@ function findIntersection(arr1, arr2) {
     }
 
     return temp;
+
 }
 
 function main() {
