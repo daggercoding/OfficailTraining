@@ -1,0 +1,52 @@
+#container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  #container1 div {
+    width: 100px;
+    height: 100px;
+  }
+  #container2 div {
+    width: 100px;
+    height: 100px;
+  }
+  #container2 {
+    display: flex;
+    margin: 20px 0px;
+  }
+  #container3 {
+    position: relative;
+    width: 7rem;
+  }
+  #container3 div {
+    width: 100px;
+    height: 100px;
+  }
+  #box1 {
+    background-color: red;
+    position: absolute;
+    z-index: 1;
+  }
+  #box2 {
+    background-color: yellow;
+    position: absolute;
+    z-index: 2;
+    top: 5px;
+    left: 5px;
+  }
+  #box3 {
+    background-color: green;
+    position: absolute;
+    z-index: 3;
+    top: 10px;
+    left: 10px;
+  }
+  #fig3 {
+    position: absolute;
+    top: 22vh;
+    width: 22vw;
+    left: -3vw;
+  }
+  
