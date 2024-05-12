@@ -1,0 +1,16 @@
+#lastPara input,
+      textarea {
+        width: 50%;
+        margin: 5px;
+      }
+      #lastPara select,
+      button {
+        width: 15%;
+        margin: 5px;
+      }
+      a {
+        font-size: larger;
+        font-weight: bolder;
+        margin-top: 10px;
+        color: blue;
+      }
