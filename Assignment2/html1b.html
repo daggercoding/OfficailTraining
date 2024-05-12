@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Tags "b" </title>
+    <link rel="stylesheet" href="./b.css">
+  </head>
+  <body>
+    <h1 style="text-align: center">About me</h1>
+    <p>
+      My name is <strong>Vishal Singh</strong>. I am a
+      <em>MERN STACK DEVELOPER</em> with a passion for coding and Learning
+      according to my point of view if you want to be a BEST coder you will have
+      to practise Daily.
+    </p>
+    <hr />
+    <h2>Hobbies</h2>
+    <p>Here are some of my hobbies:</p>
+    <ol>
+      <li>
+        <strong>Singing:</strong> I think the best tool which I have is my
+        voice. I am not a Good singer but i feel whenever my mood is not good I
+        used to listen and Sing songs and everything will be automatically
+        alrigt
+      </li>
+      <li>
+        <strong>Reading:</strong> It is one of my hobbies because according to
+        my point of You this is the best tool for Self Confidence.
+      </li>
+      <li>
+        <strong>Cooking:</strong> Actually its not my Hobbies but living alone
+        teach you many things the one which i am Learning daily is Cooking.
+      </li>
+    </ol>
+    <hr />
+    <p id="lastPara">
+      <input id="email" type="email" placeholder="Enter Email" /><br />
+      <textarea id="textarea" placeholder="Feedback"></textarea><br />
+      <select>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option></select
+      ><br />
+      <button value="submit" type="submit">Submit</button>
+      <button id="reset" type="reset" onclick="handleReset()">Reset</button>
+    </p>
+    <hr />
+    <a href="../index.html">Go to 3a</a>
+    <script>
+      function handleReset() {
+        document.getElementById("email").value = "";
+        document.getElementById("textarea").value = "";
+      }
+    </script>
+  </body>
+</html>
