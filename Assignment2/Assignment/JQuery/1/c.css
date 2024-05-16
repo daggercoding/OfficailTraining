@@ -1,0 +1,24 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+  
+  .container {
+    position: relative;
+    height: 100%;
+  }
+  
+  .red-box {
+    position: absolute;
+    background-color: red;
+    height: 40%;
+    width: 30%;
+  }
+  
+  .dimensions {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+  }

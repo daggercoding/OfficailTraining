@@ -1,0 +1,49 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#container{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1vh;
+    border: 2px solid blue;
+}
+div,h2,p{
+    padding: 1vh;
+    border: 2px solid blue;
+    width: 100%;
+    text-align: center;
+    margin: 10px 1px;
+}
+p{
+    font-size:larger;
+    font-weight: 500;
+}
+.con1{
+    display: flex;
+    justify-content: space-evenly;
+}
+#con2{
+ display: flex;
+ 
+}
+#con21{
+    width: 190%;
+}
+
+
+
+input,label{
+    width: 20%;
+}

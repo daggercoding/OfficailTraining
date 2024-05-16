@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery Effects "a"</title>
+        <meta http-equiv="Cache-control" content="no-cache">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <style type="text/css">
+            *{
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+            #footer{
+                position: fixed;
+                top: 0px;
+                left: opx;
+                z-index: 1;
+            }
+            #holder{
+                z-index: 0;
+            }
+            #holder_top{
+                background-color: #91e9d9;
+                height: 800px;
+            }
+            #holder_middle{
+                background-color: #c2dfff;
+                height: 800px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container-fluid" id="content-body">
+            <div class="row content">
+                <div class="col-lg-12 col-md-12 col-sm-12" id="footer">
+                    <input onclick="handleAum()" om-limit="testing" id="aumLimit" type="button" value="aum-limit" class="btn btn-success">
+                    <input onclick="handleScrolldown()" type="button" value="Scroll down" class="btn btn-success">
+                    <input onclick="handleScrollup()" type="button" value="Scroll Up" class="btn btn-success">
+                    <input onclick="handleScrollTop()" type="button" value="Scroll top" class="btn btn-success">
+                    <div>
+                        <input id="top" type="text" placeholder="Type anything" ><input onclick="appendTop()" type="button" value="Append Top" class="btn btn-success">
+                    </div>
+                    <div>
+                        <input id="middle" type="text" placeholder="Type anything" ><input onclick="appendMiddle()" type="button" value="Append Buttom" class="btn btn-success">
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12" id="holder">
+                    <div class="col-lg-12 col-md-12 col-sm-12" aum-limit="1" id="holder_top">
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12" id="holder_middle">
+                    </div>
+                </div>
+            </div>
+        </div>
+     
+    <script>
+        let footerHeight = document.getElementById('footer').offsetHeight;
+        console.log(footerHeight)
+        document.getElementById("holder").style.marginTop=footerHeight+5+"px"
+
+        let aumLimit = document.getElementById("aumLimit").value
+        function handleAum(){
+            let aumLimit1 = document.getElementById("aumLimit")
+            let atribute = aumLimit1.getAttribute("om-limit")
+            alert(atribute)
+        }
+
+        
+        function handleScrolldown(){
+            console.log("working")
+            window.scrollBy(0,20)
+        }
+        function handleScrollup(){
+            window.scrollBy(0,-20)
+        }
+        function handleScrollTop() {
+         window.scrollTo(0, 0);
+         }
+
+        function appendTop(){
+             let topValue = document.getElementById("top").value
+             document.getElementById("holder_top").innerText+=topValue
+             document.getElementById("top").value=""   
+        }
+
+        function appendMiddle(){
+            let middleValue = document.getElementById("middle").value
+            document.getElementById("holder_middle").innerText=middleValue
+            document.getElementById("middle").value=""
+        }
+
+    </script>
+    </body>
+</html>

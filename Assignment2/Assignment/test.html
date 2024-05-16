@@ -1,0 +1,26 @@
+let tableData = document.getElementById("table");
+    let rows = tableData.rows;
+    let tableValues = [];
+    for (let i = 0; i < rows.length; i++) {
+      let rowData = [];
+      let cells = rows[i].cells;
+      for (let j = 0; j < cells.length; j++) {
+        rowData.push(cells[j].innerText);
+      }
+      tableValues.push(rowData);
+    }
+    let presented = false;
+    tableValues.forEach((ele, ind) => {
+      if (ele.includes(value)) {
+        presented = true;
+        if (ele.indexOf(value) === 0) {
+          alert(`Item Is Presented in List at Column: 1 ROW: ${ind} `);
+        } else {
+          alert(`Item Is Presented in List at Column: 2 ROW: ${ind} `);
+        }
+      }
+    });
+    if (!presented) {
+      alert(`Item Is Not Presented in List`);
+    }
+    $("#userInput").val("")

@@ -1,0 +1,11 @@
+.image-container {
+    max-width: 400px;
+    max-height: 200px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+img {
+    max-width: 400px;
+    max-height: 200px;
+}

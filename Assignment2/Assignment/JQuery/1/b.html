@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basics of JQuery "a"</title>
+    <style>
+      #avatar {
+        transition: width 1s ease-in-out, height 1s ease-in-out;
+      }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <img
+        id="avatar"
+        src="https://th.bing.com/th/id/R.50f675f86f20a5ce4590d202d910964a?rik=V6C5rDKUc10VWQ&riu=http%3a%2f%2fmedia1.santabanta.com%2ffull1%2fMiscellaneous%2fCartoon+Characters%2fcartoon-characters-1v.jpg&ehk=YD5iGv4YCSIHOryq0cAnvbecRcTGv11te4BqTC7PbC0%3d&risl=&pid=ImgRaw&r=0"
+        height="200px"
+        width="200px"
+        alt="avatar"
+      />
+      <button id="btn">Toggle</button>
+    </div>
+
+    <script>
+      let pictures=["https://th.bing.com/th/id/OIP.1d6tBbNiJTFQNEK_k0sSjQHaFj?rs=1&pid=ImgDetMain","https://live.staticflickr.com/65535/49444286273_2af821112b_z.jpg","https://th.bing.com/th/id/OIP.UYagQDMo7CCbBLXOPB5etAHaHa?rs=1&pid=ImgDetMain","https://th.bing.com/th/id/OIP.Yul3hWWbfqcLIrfO-M7FCAHaLG?w=1366&h=2048&rs=1&pid=ImgDetMain","https://th.bing.com/th/id/OIP.muDFY6ylNObUV9gqnsjzigHaHa?w=512&h=512&rs=1&pid=ImgDetMain","https://th.bing.com/th/id/OIP.W-PXWOIy46dj6GGwxlWMewHaE7?w=728&h=485&rs=1&pid=ImgDetMain","https://i.ytimg.com/vi/xS-gJydZXuM/maxresdefault.jpg","https://permies.com/t/134939/a/148257/crystal-ball.jpg","https://images.freecreatives.com/wp-content/uploads/2015/06/nature-background-image.jpg","https://usualcom.net/wp-content/uploads/2017/09/12364849-Planet-Earth-and-human-eye-Stock-Photo.jpg"]
+      
+      console.log(pictures[Math.floor(Math.random()*10)])
+      $(document).ready(function () {
+        $("#avatar").mouseenter(function () {
+          $(this).css({
+            width: "400px",
+            height: "400px",
+          });
+        });
+        $("#avatar").mouseout(function () {
+          $(this).css({
+            width: "200px",
+            height: "200px",
+          });
+        });
+        $("#avatar").click(function () {
+          $(this).attr(
+            "src",
+            `${pictures[Math.floor(Math.random()*10)]}`
+          );
+        });
+        let toggle = false;
+        $("button").click(() => {
+          toggle = !toggle;
+
+          if (toggle) {
+            $("#avatar").css({
+              visibility: "hidden",
+            });
+          } else {
+            $("#avatar").css({
+              visibility: "visible",
+            });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

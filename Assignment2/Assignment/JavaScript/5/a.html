@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windows and Frames</title>
+    <link rel="stylesheet" href="./a.css">
+</head>
+<body>
+    <form class="container" id="form">
+     <h1>Student Stationary</h1>
+   
+     <div id="innerContainer">
+      <span>
+      <label>Name : </label>
+      <input id="studName" type="text" placeholder="Enter Your Name" />
+      </span>
+      <span>
+      <label>Age : </label>
+     <select  id="dropDown" >
+      <option id="fOption" value="none" selected hidden disabled>Please Select Your Age</option>
+   </select>
+   </span>
+   </div>
+   
+     <div id="hobbies">
+      <label for="singing">Singing:</label>
+      <input id="singing" type="checkbox" value="Singing" name="hobbies"/>
+      
+      <label for="dancing">Dancing:</label>
+      <input id="dancing" type="checkbox" value="dancing" name="hobbies"/>
+
+      <label for="Reading">Reading:</label>
+      <input id="Reading" type="checkbox" value="Reading" name="hobbies"/>
+
+      <label for="Games">Games:</label>
+      <input id="Games" type="checkbox" value="Games" name="hobbies"/>
+
+      <label for="Cricket">Cricket:</label>
+      <input id="Cricket" type="checkbox" value="Cricket" name="hobbies"/>
+
+      <label for="Football">Football:</label>
+      <input id="Football" type="checkbox" value="Football" name="hobbies"/>
+
+      
+      <label for="Painting">Painting:</label>
+      <input id="Painting" type="checkbox" value="Painting" name="hobbies"/>
+
+      
+      <label for="PhotoGraphy">PhotoGraphy:</label>
+      <input id="PhotoGraphy" type="checkbox" value="PhotoGraphy" name="hobbies"/>
+
+      
+      <label for="Swimming">Swimming:</label>
+      <input id="Swimming" type="checkbox" value="Swimming" name="hobbies"/>
+
+      
+      <label for="Crafting">Crafting:</label>
+      <input id="Crafting" type="checkbox" value="Crafting" name="hobbies"/>
+     </div>
+     <table>
+      <thead>
+      <tr>
+         <th>Item</th>
+         <th>Price</th>
+         <th>Quantity</th>
+      </tr>
+      </thead>
+      <tbody>
+         <tr>
+            <td>Book</td>
+            <td>100</td>
+            <td><input id="bookQnt" type="number" name="price" placeholder="Provide Quantity"/></td>
+         </tr>
+         <tr>
+            <td>Pen</td>
+            <td>150</td>
+            <td><input id="penQnt" type="number" name="price" placeholder="Provide Quantity"/></td>
+         </tr>
+         <tr>
+            <td>Paper</td>
+            <td>200</td>
+            <td><input id="paperQnt" type="number" name="price" placeholder="Provide Quantity"/></td>
+         </tr>
+      </tbody>
+     </table>
+     <button id="submit"  type="submit">Submit</button>
+   </form>
+
+   <div id="invoice">
+      <h2>INVOICE</h2>
+      <div>
+      <p>Name : <span id="name"></span></p>
+      <p>Date : <span id="date"></span></p>
+      </div>
+      <table>
+         <thead>
+         <tr>
+            <th>Item</th>
+            <th>Price</th>
+            <th>Quantity</th>
+         </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <td>Book</td>
+               <td>100</td>
+               <td id="book"></td>
+            </tr>
+            <tr>
+               <td>Pen</td>
+               <td>150</td>
+               <td id="pen"></td>
+            </tr>
+            <tr>
+               <td>Paper</td>
+               <td>200</td>
+               <td id="paper"></td>
+            </tr>
+            <tr>
+               <td colspan="2">Total</td>
+               <td >Rs : <span id="total"></span></td>
+            </tr>
+         </tbody>
+        </table>
+        <button onclick="handleModal()">Ok</button>
+   </div>
+<script src="./a.js"></script>
+</body>
+</html>

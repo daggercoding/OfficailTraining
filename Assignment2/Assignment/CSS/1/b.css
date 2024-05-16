@@ -1,0 +1,13 @@
+body{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  p {
+    width: 300px;
+    padding: 20px; 
+    border: 2px solid #333; 
+    margin: 20px; 
+  }

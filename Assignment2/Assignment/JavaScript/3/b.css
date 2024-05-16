@@ -1,0 +1,24 @@
+#container {
+    display: flex;
+    margin: 15% auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+ #innerContainer{
+  width: 50vw;
+ }
+  input {
+    width: 80%;
+    padding: 5px;
+    margin: 10px 5px;
+    box-sizing: border-box;
+  }
+  button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px;
+    margin-right: 5px;
+  }

@@ -1,0 +1,30 @@
+/* universal Selector */
+* {
+    text-align: center;
+  }
+
+  /* type Selector */
+  h1 {
+    color: blue;
+  }
+
+  /* attribute Selector */
+   [type]{
+    color: green;
+  }
+
+  /* class Selector */
+  .classSelect {
+    color: white;
+    background-color: green;
+  }
+
+  /* id Selector */
+  #idSelect {
+    color: orange;
+  }
+
+  /* pseudo Selector */
+  div :last-child {
+    color: red;
+  }

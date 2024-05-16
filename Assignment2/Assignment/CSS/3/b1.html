@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      #mainContainer {
+        min-height: 1200px;
+        position: relative;
+      }
+      #innerContainer {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      #boxContainer {
+        position:fixed
+      }
+      #box1 {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+      }
+      #box2 {
+        width: 100px;
+        height: 100px;
+        background-color: yellow;
+      }
+      #box3 {
+        width: 100px;
+        height: 100px;
+        background-color: green;
+      }
+      #test1{
+        position: relative;
+      }  
+      #test2{
+        display: flex;
+        position: absolute;
+        bottom: -200px;
+        left: -100px;
+      } 
+
+      #test3{
+        position: absolute;
+        bottom: 120px;
+      }
+      #box4 {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      z-index: 1;
+      }
+      #box5 {
+      width: 100px;
+      height: 100px;
+      background-color: yellow;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      z-index: 2;
+      }
+      #box6 {
+      width: 100px;
+      height: 100px;
+      background-color: green;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 3;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="mainContainer">
+      <div id="innerContainer">
+        <div id="boxContainer">
+          <div id="test1">
+            <div id="box1"></div>
+            <div id="box2"></div>
+            <div id="box3"></div>
+          </div>
+          <div id="test2">
+            <div id="box1"></div>
+            <div id="box2"></div>
+            <div id="box3"></div>
+          </div>
+        </div>
+      </div>
+      <div id="test3">
+        <div id="box4"></div>
+        <div id="box5"></div>
+        <div id="box6"></div>
+      </div>
+    </div>
+  </body>
+</html>
